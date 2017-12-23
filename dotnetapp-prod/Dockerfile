@@ -1,8 +1,9 @@
-FROM microsoft/dotnet:2.0-sdk AS build-env
+FROM 2.1-sdk-alpine AS build-env
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
 COPY *.csproj ./
+COPY *.config ./
 RUN dotnet restore
 
 # copy everything else and build
